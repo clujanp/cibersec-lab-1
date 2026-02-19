@@ -13,7 +13,8 @@ services:
       - kali_data:/root/lab
       - kali_loot:/root/loot
     networks:
-      - labnet
+      labnet:
+        ipv4_address: 172.25.0.10
 
   dvwa:
     image: vulnerables/web-dvwa
@@ -23,7 +24,8 @@ services:
     ports:
       - "4000:80"
     networks:
-      - labnet
+      labnet:
+        ipv4_address: 172.25.0.20
 
   debian_target:
     build:
@@ -33,15 +35,19 @@ services:
     hostname: debian-target
     tty: true
     networks:
-      - labnet
+      labnet:
+        ipv4_address: 172.25.0.30
 
 networks:
   labnet:
     driver: bridge
+    ipam:
+      config:
+        - subnet: 172.25.0.0/24
+          gateway: 172.25.0.1
 
 volumes:
   kali_data:
     driver: local
   kali_loot:
-    driver: local
     driver: local

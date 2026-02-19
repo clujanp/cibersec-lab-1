@@ -64,8 +64,8 @@ docker exec -it kali_lab bash
 # Instalar nmap si no está disponible
 apt-get update && apt-get install -y nmap
 
-# Escanear la red del laboratorio
-nmap -sn 172.18.0.0/16
+# Escanear la red (IPs fijas configuradas)
+nmap -sn 172.25.0.0/24
 
 # Escanear Debian target
 nmap -sV -p- debian-target

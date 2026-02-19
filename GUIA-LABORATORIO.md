@@ -118,10 +118,21 @@ apt-get install -y nmap hydra sqlmap nikto
 ### 1️⃣ **Escanear la red** (Ver qué hay conectado)
 
 ```bash
-nmap -sn 172.0.0.0/16
+# Ver tu IP (siempre será 172.25.0.10)
+hostname -I
+
+# Escanear la red completa
+nmap -sn 172.25.0.0/24
 ```
 
-**Resultado:** Verás las IPs de DVWA y Debian
+**Resultado esperado:**
+```
+Nmap scan report for 172.25.0.10 (kali) - TÚ
+Nmap scan report for 172.25.0.20 (dvwa)
+Nmap scan report for 172.25.0.30 (debian-target)
+```
+
+✅ **Las IPs son siempre las mismas** gracias a la configuración estática.
 
 ---
 
