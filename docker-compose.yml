@@ -1,0 +1,47 @@
+services:
+  kali:
+    build:
+      context: ./kali_custom
+      dockerfile: Dockerfile
+    container_name: kali_lab
+    hostname: kali
+    tty: true
+    stdin_open: true
+    cap_add:
+      - NET_ADMIN
+    volumes:
+      - kali_data:/root/lab
+      - kali_loot:/root/loot
+    networks:
+      - labnet
+
+  dvwa:
+    image: vulnerables/web-dvwa
+    platform: linux/amd64
+    container_name: dvwa_lab
+    hostname: dvwa
+    ports:
+      - "4000:80"
+    networks:
+      - labnet
+
+  debian_target:
+    build:
+      context: ./debian_target
+      dockerfile: Dockerfile
+    container_name: debian_target_lab
+    hostname: debian-target
+    tty: true
+    networks:
+      - labnet
+
+networks:
+  labnet:
+    driver: bridge
+
+volumes:
+  kali_data:
+    driver: local
+  kali_loot:
+    driver: local
+    driver: local
