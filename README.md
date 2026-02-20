@@ -8,7 +8,7 @@ Laboratorio Docker con Kali Linux, DVWA y Debian vulnerable para prácticas de p
 - **dvwa_lab**: DVWA (Damn Vulnerable Web Application) - Aplicación web vulnerable en http://localhost:4000
 - **debian_target_lab**: Debian con servicios vulnerables (SSH, FTP, Apache, MariaDB)
 
-> **Nota**: DVWA reemplaza Metasploitable2 ya que funciona perfectamente en Mac ARM y ofrece excelentes prácticas de vulnerabilidades web (SQL Injection, XSS, CSRF, etc.)
+> **Nota**: DVWA reemplaza Metasploitable2 ya que funciona perfectamente en docker y ofrece excelentes prácticas de vulnerabilidades web (SQL Injection, XSS, CSRF, etc.)
 
 ## 🔑 Credenciales
 
